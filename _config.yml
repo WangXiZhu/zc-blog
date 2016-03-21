@@ -67,7 +67,6 @@ plugins:
 - hexo-generator-sitemap
 - hexo-generator-tag
 - hexo-generator-category
-- hexo-renderer-less
 - hexo-renderer-stylus
 - hexo-renderer-ejs
 - hexo-generator-index
