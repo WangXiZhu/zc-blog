@@ -62,14 +62,14 @@ pagination_dir: page
 
 theme: yilia
 # theme: landscape
-plugins:
-- hexo-generator-feed
-- hexo-generator-sitemap
-- hexo-generator-tag
-- hexo-generator-category
-- hexo-renderer-stylus
-- hexo-renderer-ejs
-- hexo-generator-index
+# plugins:
+# - hexo-generator-feed
+# - hexo-generator-sitemap
+# - hexo-generator-tag
+# - hexo-generator-category
+# - hexo-renderer-stylus
+# - hexo-renderer-ejs
+# - hexo-generator-index
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
