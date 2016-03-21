@@ -71,8 +71,6 @@ theme: yilia
 # - hexo-renderer-ejs
 # - hexo-generator-index
 
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
   repository: git@github.com:WangXiZhu/zc-blog.git
