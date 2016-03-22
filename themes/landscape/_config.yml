@@ -2,6 +2,9 @@
 menu:
   Home: /
   Archives: /archives
+  FE: /tags/front-end
+  Note: /tags/随笔
+
 rss: /atom.xml
 
 # Content
@@ -12,10 +15,14 @@ fancybox: true
 sidebar: right
 widgets:
 - category
-- tag
+# - tag
 - tagcloud
 - archive
 - recent_posts
+
+duoshuo: 
+  # on: true
+  wangxizhu
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:
@@ -28,8 +35,8 @@ archive_type: 'monthly'
 show_count: false
 
 # Miscellaneous
-google_analytics:
-favicon: /favicon.png
+google_analytics: 
+favicon: /img/favicon.ico
 twitter:
 google_plus:
 fb_admins:
