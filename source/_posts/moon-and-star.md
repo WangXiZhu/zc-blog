@@ -3,9 +3,9 @@ date: 2015-08-12 23:18:59
 categories: [demo,blog]
 tags: [front-end,css]
 ---
-##学习内容
+## 学习内容
 在家没事，学习几个css的标签也是蛮有意思。用学习的内容写了一个小玩意！
-####css标签
+#### css标签
 1.box-shadow [块级元素对应阴影大小]  
 2.border-radius [定义圆角的大小，当值为50%的时候]   
 3.animation [设置动画的时间]    
@@ -125,7 +125,7 @@ box-shadow与border-radius都是在原来图形的基础上进行定义的，如
 
 其中，肯定还是有很多的不足，在以后会慢慢改进。
 
-####display:none与visibility:hidden的区别
+#### display:none与visibility:hidden的区别
 1.空间占据   
 2.回流与渲染   
 3.株连性  
@@ -135,7 +135,7 @@ display:none会产生reflow和repaint(回流与渲染事件)；
 使用后，虽然子元素也会隐藏，但是通过visibility:visible可使子元素显示。  
 
 
-####常用css元素隐藏
+#### 常用css元素隐藏
 
     {position: absolute; top: -999em;}        /* 不占据空间，无法点击,通过缩进文本，实现隐藏 */ 
     

@@ -3,20 +3,20 @@ date: 2015-09-02 21:25:28
 categories: blog
 tags: [front-end,xss,hook,前端安全]
 ---
-##概述
+## 概述
 没想到这样一个问题，还把自己搞得有点昏了。不过在找寻答案的过程中，我知道自己是快乐的！虽然没有自己解答出这个问题，但是收获颇多。特别是看了人家一步一步思考问题的方式，感悟是大大的。
 
-##问题
+## 问题
 xss作为web前端常用的注入漏洞，在现在的互联网业务中其危险性不亚于其他攻击方式，请编写过滤函数
 1.通过异步请求拿到的json数据后，如何安全的使用innerHtml显示在页面上
 2.浏览器地址栏直接获取的参数，如何安全地进行document.write
 3.后台直接输出完整的html页面，如何保证页面渲染后，用户内容的< script >不被执行.
 
 <!-- more -->
-##分析
+## 分析
 这里提出的就是xxs方式，那么这3个小题中的innerHtml,document.write,script肯定就是“坑”了。
 
-##前端常见xss
+## 前端常见xss
 
 1.iframe: 
 
@@ -63,13 +63,13 @@ xss作为web前端常用的注入漏洞，在现在的互联网业务中其危�
     <frame src="打开网页" framborder="no" scrolling="auto" noresize marginwidth="0" margingheight="0"> 
     <frame src="网马地址" frameborder="no" scrolling="no" noresize marginwidth="0" margingheight="0">
 
-##原理
+## 原理
 
 xss(cross site script)跨站脚本攻击
 通过属性"src"加载来执行代码在获取网站或者网站服务器的部分或者全部权限后，在网页文件中插入一段恶意代码，
 来实现攻击。
 
-##xss类型
+## xss类型
 这个是在阿里面试的时候问道这个问题的，但是之前并没有很详细地区分xss的类型。只知道某种方式。
 
 1.DOM—based XSS
@@ -127,7 +127,7 @@ HTML5中添加，提供主动防御
 文章参考：[http://fex.baidu.com/blog/2014/06/xss-frontend-firewall-2/](http://fex.baidu.com/blog/2014/06/xss-frontend-firewall-2/)
 
 
-##javascript hook
+## javascript hook
 简单钩子实现	
 
 	//暂存变量

@@ -4,7 +4,7 @@ categories: blog    #文章文类
 tags: [front-end,html]
 ---
 
-##html5的web worker
+## html5的web worker
 
 <b>异步执行代码，而不阻塞代码。来解决script的阻塞问题</b>
 
@@ -33,6 +33,6 @@ tags: [front-end,html]
     }
 
 
-####弊端：
+#### 弊端：
 * Firefox支持，而chrome不支持。  
 * 不能跨域加载js

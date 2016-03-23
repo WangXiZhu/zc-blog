@@ -4,7 +4,7 @@ categories: blog
 tags: [front-end,css]
 ---
 
-##css选择器
+## css选择器
 
 每次看了东西又搞忘了，非要好好来总结一下才可以。这次学习的内容是关于css选择器。包括了以下内容。
 
@@ -14,7 +14,7 @@ tags: [front-end,css]
 * css优化
 
 <!-- more -->
-###css伪类选择器
+### css伪类选择器
 css2中比较有特点的就是连接的伪类 :hover 、 :active 、 :link 、:visited
 
     a:hover     动态伪类选择器：鼠标停留的元素   
@@ -37,7 +37,7 @@ css2中比较有特点的就是连接的伪类 :hover 、 :active 、 :link 、:
 
 书写顺序：LOve:HAte(爱恨)
 
-###css3新增选择器
+### css3新增选择器
     
     nth-child(2)    //选择属于其父元素的第二个子元素的每个 <p> 元素。  
     
@@ -61,7 +61,7 @@ css2中比较有特点的就是连接的伪类 :hover 、 :active 、 :link 、:
 选择器的优先级我们通常使用的内联是优先于外嵌的，而且id选择器也高于class选择器。
     !important > 内联 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象 > 继承 > 通配符 通配符 > 继承
     
-####权重
+#### 权重
 1、通配选择符的权值 0,0,0,0
 
 2、标签的权值为 0,0,0,1
@@ -88,7 +88,7 @@ css2中比较有特点的就是连接的伪类 :hover 、 :active 、 :link 、:
 由于所有的类名(classes)都是以8字节字符串存储的。8字节所能hold的最大值就是255. 当同时出现256个class, 势必会越过其边缘，溢出到id区域。
 
 
-###css标签匹配原理
+### css标签匹配原理
 从右到左 如：DIV#divBox p span.red{color:red;} 先查找html中所有class=’red’的span元素，
 找到后，再查找其父辈元素中是否有p元素，再判断p的父元素中是否有id为 divBox的div元素，
 如果都存在则CSS匹配上。 目的：为了尽早过滤掉一些无关的样式规则和元素。

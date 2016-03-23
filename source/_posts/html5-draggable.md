@@ -4,10 +4,10 @@ date: 2015-09-19 10:01:33
 categories: blog
 
 ---
-##概述
+## 概述
 昨天去百度面试了，妥妥的接受了一波打击。再一次证明自己的基础是相当的不牢固，而且以前学习知识也有点浅尝辄止的感觉。学了新的东西就沾沾自喜，而现在一定要静下心来学习，多多发散思维。
 
-##定义
+## 定义
 拖(drag)放(drop)，我们就围绕这两个字扩展。
 
 1.首先要允许拖元素。
@@ -37,7 +37,7 @@ drop 事件的默认行为是以链接形式打开，则调用 preventDefault() 
     ev.preventDefault();	
     
     
-####涉及事件
+#### 涉及事件
 
 * 被拖动的元素发生顺序
 	dragstart-->drag[持续发生]--dragend
@@ -55,7 +55,7 @@ drop 事件的默认行为是以链接形式打开，则调用 preventDefault() 
 	* dragleave：元素离开目标元素时触发。
 
 
-##dataTransfer对象
+## dataTransfer对象
 为了在拖放操作时实现数据交换，IE 5引入了dataTransfer对象，它是事件对象的一个属性，用于从被拖动元素向放置目标传递<b>字符串格式</b>的数据。
 
 ####访问器与修改器
@@ -78,7 +78,7 @@ drop 事件的默认行为是以链接形式打开，则调用 preventDefault() 
     var text = edataTransfer.getData("Text");
 
 
-###后续
-栗子链接地址：[请戳这里](http://htmlpreview.github.io/?https://github.com/WangXiZhu/Learning_Demo/blob/master/html5_draggable/index.html)
+### 后续
+链接地址：[请戳这里](http://htmlpreview.github.io/?https://github.com/WangXiZhu/Learning_Demo/blob/master/html5_draggable/index.html)
 
 学习地址：[http://www.w3cmm.com/html/drag.html](http://www.w3cmm.com/html/drag.html)

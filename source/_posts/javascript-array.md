@@ -4,13 +4,13 @@ categories: blog    #文章文类
 tags: [front-end,javascript]
 ---
 
-##javascript数组
+## javascript数组
 昨天在做阿里巴巴的面试题时发现针对JavaScript Array考的问题还有记到，而且都是考原生的方法。
 但部分在w3c上都没有见过，于是就查看了资料弄个究竟。    
 这里就介绍了以下几个方法：sort()、forEach()、filter()、reduce()、join()
 
 <!-- more -->
-####sort()
+#### sort()
  <b>定义：</b>sort方法是字符编码ASCII的顺序进行排序。    
     
     //比较字符串
@@ -29,7 +29,7 @@ tags: [front-end,javascript]
     sort(function compare(a,b){return a-b;})    //顺序
 
 
-####forEach()
+#### forEach()
  <b>定义：</b>数组的每个元素都执行方法
  
  <b>表达式：</b>array1.forEach(callbackfn[, thisArg])
@@ -48,7 +48,7 @@ tags: [front-end,javascript]
     } 
     letters.forEach(ShowResults); 
 
-####filter()
+#### filter()
 <b>定义：</b> 在匹配过滤条件后，创建一个新的数组。所以不会改变原数组。
 
 <b>表达式：</b>array1.filter(callbackfn[, thisArg])
@@ -102,14 +102,14 @@ filter 遍历的元素范围在第一次调用 callback 之前就已经确定了
     // flattened is [0, 1, 2, 3, 4, 5]
 
 
-####join()
+#### join()
 一个数组的所有元素连接成为一个字符串。   
     
     var ddd = [1,2,4,3,5];
     var str = ddd.sort(function compare(a,b){return b-a;}).join('+');
     // str = '5+4+3+2+1';
 
-####测试
+#### 测试
 
     ["1","2","3"].map(parseInt) 输出结果为
 

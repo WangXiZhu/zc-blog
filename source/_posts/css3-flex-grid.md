@@ -15,7 +15,7 @@ categories: [front-end]
 
 <!-- more -->
 
-##flex专业名词
+## flex专业名词
 * flex item
 flex子类条目
 
@@ -77,7 +77,7 @@ value: number(>0)
 	  flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
 	}
 
-##优点
+## 优点
 自适应各种屏幕
 
 ##缺点
@@ -91,13 +91,13 @@ value: number(>0)
 	}
 这里将容器设置为弹性盒子，而它的内部的<b>所有元素</b>就变为了弹性子元素
 
-##注意点
+## 注意点
 弹性盒子的布局逻辑
 	* 多列布局 中的column-*属性对弹性子元素无效。
 	* float 和 clear 对弹性子元素无效。使用 float 会导致 display 属性计算为 block.
 	* vertical-align 对弹性子元素的对齐无效。
 
-##Demo
+## Demo
 
 1.水平垂直居中（简直了）
 
@@ -120,7 +120,7 @@ Grid 表格布局 二维布局 相比flex可以对两个方向同时设置，但
 
 由于网格容器不是块容器，所以部分属性会失效。类似于flex
 
-###术语
+### 术语
 1.网格容器(Grid containers)
 	value: grid || inline-gird
 
@@ -145,7 +145,7 @@ Grid 表格布局 二维布局 相比flex可以对两个方向同时设置，但
 
 8. 分层:z-index
 	在重叠分部分通过z-index来分层
-##优点
+## 优点
 让布局(css)和标记语言(html)真正地分离
 	
 	网格完全是用css定义的。同时它的子类都不需要重新去定义区域，类名或id。目的轻量、易懂。更关键的是我们不会因为样式破坏其他的布局，现在是越来越期待了。
@@ -154,7 +154,7 @@ Grid 表格布局 二维布局 相比flex可以对两个方向同时设置，但
 
 同时我们还可以使用媒体查询来响应设备
 
-##学习资料
+## 学习资料
 
 * [https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
 

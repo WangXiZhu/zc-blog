@@ -3,7 +3,7 @@ date: 2015-08-18 23:12:15
 categories: blog    #文章文类
 tags: [front-end,css3,animation]
 ---
-##css3动画示例
+## css3动画示例
 昨天在去哪儿的校招网上看到一个动画做得还不错就没忍住就多看了一下。于是看了看源码发现“哇哦，原来是这样的”
 ，在这里记下笔记。多学多看总是好滴！ 
 
@@ -107,7 +107,7 @@ tags: [front-end,css3,animation]
     }
     
     
-##css3 transform属性
+## css3 transform属性
 这里主要是通过translate3d(x,y,z)来实现的。
 
     translate3d(x,y,z);         //分别定义在x、y、z轴上移动的距离

@@ -4,8 +4,8 @@ categories: blog
 tags: [front-end,jquery]    #文章标签，多于一项时用这种格式
 
 ---
-##JQuery中$.ajax()与$.post()方法的比较
-###$.ajax()的常用方式
+## JQuery中$.ajax()与$.post()方法的比较
+### $.ajax()的常用方式
 ```javascript
 $.ajax({        
     type:"POST",
@@ -19,7 +19,7 @@ $.ajax({
 });
 ```
 
-###$.post()常用方式
+### $.post()常用方式
 $.post()算是$.ajax()的一种变体了，它的默认加载数据的方式为异步，如果设置为同步的话
 ```javascript
 $.ajaxSetup({  

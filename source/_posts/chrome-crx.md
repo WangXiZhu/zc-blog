@@ -3,7 +3,7 @@ tags: [chrome,crx]
 date: 2015-11-09 19:19:51
 categories: daily-toy
 ---
-##自言自语
+## 自言自语
 今天斗捣鼓了一下chrome，发现我之前看到的只是冰山一角。通过今天下午，自己对chrome的喜爱又增加了异步！
 ##what is the cre
 什么是chrome扩展程序呢？
@@ -15,7 +15,7 @@ categories: daily-toy
 开发教程：[http://blog.jobbole.com/46608/](http://blog.jobbole.com/46608/)
 
 <!-- more -->
-##干货
+## 干货
 
 环境：<b>chrome浏览器</b>
 

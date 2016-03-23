@@ -4,10 +4,10 @@ date: 2015-09-20 11:25:26
 categories: blog
 ---
 
-##概述
+## 概述
 虽然有机会参加百度和腾讯的面试，但是结果并不是很理想。目前已经双双败下阵来。如果说很难也谈不上，就是一些常见的基础问题。其中腾讯在技术上更侧重于深度，而且特别喜欢问计算机网络的知识。而百度就是原生的js操作问题多一点。不过每一个问题还是特别有意思。
 
-##问题
+## 问题
 1.Cookie与sessionID是怎么传送
 Cookie是服务器在本地机器上存的一段文本。
 Cookie对应字段Cookie:客户端传送
@@ -144,9 +144,9 @@ DOMContentLoaded是html5中新加入的。就是为了是在domcontent加载完�
 
 	<iframe name="aa" src="" style="display:none"></iframe>
 
-##补充知识
+## 补充知识
 
-####document.querySelectorAll()与document.querySelector()
+#### document.querySelectorAll()与document.querySelector()
     
 DOM选择器，原生js操作元素获得元素，比jquery更加快。IE8也支持该方法，它接收的参数和 CSS 选择器完全一致。
 
@@ -158,7 +158,7 @@ document.querySelector()：返回指定元素节点的子树中匹配selector的
 	document.querySelector("#test");
 	document.querySelectorAll("#test")[0];
 
-栗子：
+例子：
 
 document 中选取 class 为 test 的 div 的子元素 p 的第一个子元素。
 	
@@ -166,5 +166,5 @@ document 中选取 class 为 test 的 div 的子元素 p 的第一个子元素�
 	document.querySelectorAll("div.test>p:first-child")[0];
 
 
-##后记
+## 后记
 这并不是标准答案，只是我自己在学习的过程中记录的笔记。如若有错，请指正。
