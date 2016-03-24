@@ -20,9 +20,11 @@ widgets:
 - archive
 - recent_posts
 
-duoshuo: 
-  # on: true
-  wangxizhu
+# 使用disqus，停止duoshuo
+# duoshuo: wangxizhu
+
+# disqus
+disqus_shortname: zchub
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:
