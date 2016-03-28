@@ -60,6 +60,7 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+disqus_shortname: zchub
 # theme: yilia
 theme: landscape
 

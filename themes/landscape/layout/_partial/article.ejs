@@ -23,10 +23,13 @@
       <% } %>
     </div>
     <footer class="article-footer">
-      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
-      <% if (post.comments && config.disqus_shortname){ %>
-        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
-      <% } %>
+       <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
+       <% if (post.comments && (config.duoshuo_shortname || theme.duoshuo_shortname)){ %>
+          <a href="<%- post.permalink %>#ds-thread" class="article-comment-link"><%= __('comments') %></a>
+        <% } else if (post.comments && config.disqus_shortname){ %>
+          <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comments') %></a>
+        <% } %>
+
       <%- partial('post/tag') %>
     </footer>
   </div>
@@ -36,27 +39,14 @@
 </article>
 
 
-<% if (!index && theme.duoshuo && post.comments){ %>
-<%- partial('post/duoshuo', {
-    key: post.slug,
-    title: post.title,
-    url: config.url+url_for(post.path)
-  }) %>
+<% if (!index && post.comments && (config.duoshuo_shortname || theme.duoshuo_shortname)){ %>
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= post.permalink %>"></div>
+  </section>
+<% } else if (!index && post.comments && config.disqus_shortname){ %>
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
 <% } %>
-
-
-<section id="comments">
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    var disqus_shortname = 'zchub'; 
-    // required: replace example with your forum shortname
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
-
