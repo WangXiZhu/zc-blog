@@ -19,6 +19,7 @@ widgets:
 - tagcloud
 - archive
 - recent_posts
+- recent_comments
 
 # 使用disqus，停止duoshuo
 # duoshuo: wangxizhu
@@ -31,6 +32,7 @@ index_widgets:
 # - category
 # - tagcloud
 # - archive
+
 
 # widget behavior
 archive_type: 'monthly'

@@ -1,0 +1,8 @@
+<% if (site.posts.length && config.disqus_shortname){ %>
+  <div class="widget-wrap">
+    <h3 class="widget-title"><%= __('recent_comments') %></h3>
+    <div class="widget">
+      <script type="text/javascript" src="http://<%= config.disqus_shortname %>.disqus.com/recent_comments_widget.js?num_items=4&hide_avatars=0&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+    </div>
+  </div>
+<% } %>
