@@ -29,7 +29,7 @@ tags: [css3,animation,performance]
 <!-- more -->
 
 
-   ![](http://7xklhg.com1.z0.glb.clouddn.com/chrome-show-layer-border.png)
+![](http://7xklhg.com1.z0.glb.clouddn.com/chrome-open-layer-border.png)
    
   结果如下
 
@@ -37,20 +37,24 @@ tags: [css3,animation,performance]
   
   这个页面只有一个层，其中蓝色的网格表示瓦片(tile)，他们作为层的单元。
  
- > 创建层的标准,具体一下几种情况
- > - 3D 或透视变换(perspective transform) CSS 属性
- > - 使用加速视频解码的 元素
- > - 拥有 3D (WebGL) 上下文或加速的 2D 上下文的 元素
- > - 混合插件(如 Flash)
- > - 对自己的 opacity 做 CSS 动画或使用一个动画 webkit 变换的元素
- > - 拥有加速 CSS 过滤器的元素
- > - 元素有一个包含复合层的后代节点(换句话说，就是一个元素拥有一个子元素，该子元素在自己的层里)
- > - 它的兄弟元素在复合层中渲染，而这个兄弟元素的z-index比较小（也会放到复合层）
+
+
+创建层的标准,具体一下几种情况
+* 3D 或透视变换(perspective transform) CSS 属性
+* 使用加速视频解码的 元素
+* 拥有 3D (WebGL) 上下文或加速的 2D 上下文的 元素
+* 混合插件(如 Flash)
+* 对自己的 opacity 做 CSS 动画或使用一个动画 webkit 变换的元素
+* 拥有加速 CSS 过滤器的元素
+* 元素有一个包含复合层的后代节点(换句话说，就是一个元素拥有一个子元素，该子元素在自己的层里)
+* 它的兄弟元素在复合层中渲染，而这个兄弟元素的z-index比较小（也会放到复合层）
 
  - 对于Firefox，打开about:config然后设置layers.draw-borders为true
 
 ##### 浏览器中DOM到屏幕
+
  经常面试会问到这个相关的问题。“浏览器访问过程发生的事情？”。讲到渲染的时候，都是html dom tree + css stylesheet = render tree。那么更具体一点的呢？
+  
    1.获取 DOM 并将其分割为多个层
    2.将每个层独立的绘制进位图中
    3.将层作为纹理上传至 GPU
@@ -60,6 +64,7 @@ tags: [css3,animation,performance]
 
 
 #### 动画的种类
+
 * css
 	* css dom animation
 	* svg animation
@@ -71,15 +76,18 @@ tags: [css3,animation,performance]
 
 
 ##### 动画如何选择
+
   动画方案以上几种，我们如何选择合适的，高性能的动画呢？
   
   js动画通过操作DOM元素修改样式来是实现动画，在PC端兼容低端浏览器更占优势。
-  > 优点：更好的控制。如动画的开始，结束以及监听动画
-  > 缺点：js本身是单线程，其他的js可能对其干扰，造成线程阻塞，引起“丢帧”现象
+
+
+*优点：更好的控制。如动画的开始，结束以及监听动画*
+*缺点：js本身是单线程，其他的js可能对其干扰，造成线程阻塞，引起“丢帧”现象*
  
   在移动端，我们选择性能更优的css3动画！它由浏览器来执行。但是移动端本身的特殊性，性能成为一大痛点。
- > 优点：浏览器能对动画进行优化。使用图层，这样在主线程外运行
- > 缺点：控制力弱，难以实现动画的有序显示
+*优点：浏览器能对动画进行优化。使用图层，这样在主线程外运行*
+*缺点：控制力弱，难以实现动画的有序显示*
 
   jquery在选择引擎效率确实很快，但是在动画方面不占优势。原因是经常触发垃圾回收（导致动画运行过程中的卡顿）。以及不能避免的[layout thrashing](http://wilsonpage.co.uk/preventing-layout-thrashing/)（导致在动画开始卡顿），多余的relayout/reflow。
 	
@@ -88,10 +96,10 @@ tags: [css3,animation,performance]
 
   浏览器不会在动画的每一帧都绘制一次，而是生成DOM元素的快照，并作为GPU纹理（也被叫做层）存储起来。之后浏览器只需要告诉GPU[擅长图形计算]去转换指定的纹理来实现DOM元素的动画效果。这就叫做GPU合成，也经常被称作『硬件加速』。
  
- >  缺点：消耗用户设备电量，消耗电池寿命 
+*缺点：消耗用户设备电量，消耗电池寿命*
 
 硬件加速原理
->  渲染树，每个渲染对象都会指定到一个图片层，并作为结构上传到GPU  。是由几个cpmpositor进程处理的。当动画结束，这个层（GPU纹理）会被移除 。
+*渲染树，每个渲染对象都会指定到一个图片层，并作为结构上传到GPU  。是由几个cpmpositor进程处理的。当动画结束，这个层（GPU纹理）会被移除 。*
 
 ##### 动画调优的策略与技巧
 
@@ -126,6 +134,7 @@ tags: [css3,animation,performance]
 	
 2、每个设备的GPU渲染最好是在60fps(frames per second)以下。因为浏览器
 3、使用良好支撑GPU的css属性
+
 - opacity
 - translate
 - rotate
@@ -179,7 +188,7 @@ tags: [css3,animation,performance]
 ##### 动画API
 
 - requestAnimationFrame： RAF机制
-> 作用类似setTimeout(fn,0),但是它能让所有的DOM在下一个frame中运行
+ 作用类似setTimeout(fn,0),但是它能让所有的DOM在下一个frame中运行
   - requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
   - 在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的的cpu，gpu和内存使用量。
 
