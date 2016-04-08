@@ -188,7 +188,8 @@ tags: [css3,animation,performance]
 ##### 动画API
 
 - requestAnimationFrame： RAF机制
- 作用类似setTimeout(fn,0),但是它能让所有的DOM在下一个frame中运行
+ <del>作用类似setTimeout(fn,0),但是它能让所有的DOM在下一个frame中运行</del>
+ 准确来说，它的功能类似underscore中的 throttle(节流)。当我们在浏览器中加载动画时，它是一个起到让动画流畅的保证。(PS：IE9不支持)
   - requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
   - 在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的的cpu，gpu和内存使用量。
 
@@ -225,3 +226,4 @@ tags: [css3,animation,performance]
 - [http://www.awwwards.com/web-animation-infographics-a-map-of-the-best-animation-libraries-for-javascript-and-css3-plus-performance-tips.html](http://www.awwwards.com/web-animation-infographics-a-map-of-the-best-animation-libraries-for-javascript-and-css3-plus-performance-tips.html)
 - [https://davidwalsh.name/css-js-animation](https://davidwalsh.name/css-js-animation)
 - [http://www.html5rocks.com/zh/tutorials/speed/layers/](http://www.html5rocks.com/zh/tutorials/speed/layers/)
+- [debounce,throttle,rAF](https://css-tricks.com/debouncing-throttling-explained-examples/)
