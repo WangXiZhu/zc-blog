@@ -38,7 +38,7 @@ categories: [javascript]
         }
       })
 
-
+<!-- more -->
 
   * props
   用于父子组件之间传递数据的桥梁，子组件中可以通过 this.props.name 的方式来访问父组件传递的对象、方法。
