@@ -1,5 +1,5 @@
 ---
-title: 跨域
+title: 获取数据方式
 date: 2016-07-27 17:18:36
 tags: [file-upload]
 ---
@@ -103,9 +103,27 @@ XHR2规范中的内容，最近做了个图片上传就用到 formData。
     var data2 = new FormData();
     data2.append(key,value) 需要两个参数，键和值。
 
+    //使用 FormData上传
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST',url,true);
+    xhr.send(data); //写入数据
 
 * progress()
-  通过该方法我们可以监听该方法的进程
+  通过该方法我们可以监听该上传数据的进程，可以通过返回的参数能用进度条更好地进行交互。
 
+    xhr.progress = function(pe){
+      if(pe.lengthComputable){
+
+      }
+    }
+
+    当 我们通过头部信息 content-length 知道 后，lengthComputable会被
 优点： 我们不需要去设置请求头部，XHR 对象能够识别数据类型是否是 formData 的实例。
 缺点： 目前IE 浏览器需要 10+ 支持（真是坑）
+
+### webSocket
+在 web 端建立 socket来进行通信，刚开始学习java 时通过进行 client 和 server 类，通过 socket来进行通信。
+
+* 使用入门
+
+    var connection = new WebSocket('ws://html5rocks.websocket.org/echo', ['soap', 'xmpp']);
