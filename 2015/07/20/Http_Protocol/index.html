@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Http学习 | hubyo&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Http学习&amp;emsp;&amp;emsp;最近在准备前端的东西，突然觉得了解前端与后台交互的协议HTTP也是灰常重要滴！HTTP协议就是定义浏览器如何请求服务器，进行文件（文本、图像等）交换，其中服务端是有相应的进程&amp;emsp;&amp;emsp;自监听浏览器是否发送请求。&amp;emsp;&amp;emsp;如果监听到连接建立，就建立TCP连接，接下里就是“三次握手”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Http学习">
+<meta property="og:url" content="http://blog.zchub.cn/2015/07/20/Http_Protocol/index.html">
+<meta property="og:site_name" content="hubyo'blog">
+<meta property="og:description" content="Http学习&amp;emsp;&amp;emsp;最近在准备前端的东西，突然觉得了解前端与后台交互的协议HTTP也是灰常重要滴！HTTP协议就是定义浏览器如何请求服务器，进行文件（文本、图像等）交换，其中服务端是有相应的进程&amp;emsp;&amp;emsp;自监听浏览器是否发送请求。&amp;emsp;&amp;emsp;如果监听到连接建立，就建立TCP连接，接下里就是“三次握手”。">
+<meta property="og:image" content="http://7xklhg.com1.z0.glb.clouddn.com/gitcafe_tcp.jpg">
+<meta property="og:image" content="http://7xklhg.com1.z0.glb.clouddn.com/gitcafe_work-process.jpg">
+<meta property="og:image" content="http://7xklhg.com1.z0.glb.clouddn.com/gitcafe_dsn_space.png">
+<meta property="og:updated_time" content="2016-09-25T03:11:05.036Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Http学习">
+<meta name="twitter:description" content="Http学习&amp;emsp;&amp;emsp;最近在准备前端的东西，突然觉得了解前端与后台交互的协议HTTP也是灰常重要滴！HTTP协议就是定义浏览器如何请求服务器，进行文件（文本、图像等）交换，其中服务端是有相应的进程&amp;emsp;&amp;emsp;自监听浏览器是否发送请求。&amp;emsp;&amp;emsp;如果监听到连接建立，就建立TCP连接，接下里就是“三次握手”。">
+<meta name="twitter:image" content="http://7xklhg.com1.z0.glb.clouddn.com/gitcafe_tcp.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="hubyo&#39;blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  //不同域名，不同id
+  hm.src = "//hm.baidu.com/hm.js?3a6b5aecad8d65cea4fd3e2576bb5fd9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hubyo&#39;blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">FE | CQ@China</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags/front-end">FE</a>
+        
+          <a class="main-nav-link" href="/tags/随笔">Note</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.zchub.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Http_Protocol" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/20/Http_Protocol/" class="article-date">
+  <time datetime="2015-07-20T23:19:14.000Z" itemprop="datePublished">2015-07-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/blog/">blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Http学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Http学习"><a href="#Http学习" class="headerlink" title="Http学习"></a>Http学习</h2><p>&emsp;&emsp;最近在准备前端的东西，突然觉得了解前端与后台交互的协议HTTP也是灰常重要滴！<br>HTTP协议就是定义浏览器如何请求服务器，进行文件（文本、图像等）交换，其中服务端是有相应的进程<br>&emsp;&emsp;自监听浏览器是否发送请求。<br>&emsp;&emsp;如果监听到连接建立，就建立TCP连接，接下里就是“三次握手”。</p>
+<a id="more"></a>
+<h4 id="计算机网络分析图"><a href="#计算机网络分析图" class="headerlink" title="计算机网络分析图"></a>计算机网络分析图</h4><p>&emsp;&emsp;在具体学习前，我认为下面这张图片应该是重点，从它能够清楚的了解计算机网络的层级架构，以及具体的每个层级所连接的情况。<br><img src="http://7xklhg.com1.z0.glb.clouddn.com/gitcafe_tcp.jpg" alt=""></p>
+<h4 id="TCP建立连接-三次握手"><a href="#TCP建立连接-三次握手" class="headerlink" title="TCP建立连接[三次握手]"></a>TCP建立连接[三次握手]</h4><ul>
+<li>浏览器发送请求，如浏览某个页面</li>
+<li>服务端响应请求</li>
+<li>建立连接</li>
+</ul>
+<h4 id="工作图片"><a href="#工作图片" class="headerlink" title="工作图片"></a>工作图片</h4><p><img src="http://7xklhg.com1.z0.glb.clouddn.com/gitcafe_work-process.jpg" alt=""></p>
+<p>由图片我们可以清楚知道请求的具体步骤<br>1.浏览器分析链接指向页面的URL；<br>2.浏览器向DNS(域名系统)<b>请求解析</b>页面所对应域名的IP地址；<br>3.DNS(域名系统)解析出重庆理工大学的IP地址为“222.178.158.61”；<br>4.浏览器向服务器建立TCP连接(“IP”：222.178.158.61,“port”:80)；<br>5.浏览器发出取命令步骤：GET/yxsz/yxsz.html；<br>6.服务器 <a href="http://www.cqut.edu.cn/" target="_blank" rel="external">www.cqut.edu.cn</a> 给出相应,把文件/yxsz/yxsz.html发给浏览器；<br>7.释放TCP连接；<br>8.浏览器显示“院系设置”的页面。</p>
+<p>&emsp;&emsp;而在普通的浏览器请求前应该还有两步</p>
+<ul>
+<li>浏览器要先分析页面的URL</li>
+<li>浏览器请求DNS(域名系统)解析页面所对应域名的IP地址</li>
+</ul>
+<h4 id="每次交互内容"><a href="#每次交互内容" class="headerlink" title="每次交互内容"></a>每次交互内容</h4><p>  由ASCII码组成的请求和“类MIME-like”(通用的因特网邮件，自己百度哟)的响应组成</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>传输层采取TCP协议 【保证数据稳定传输】</li>
+<li>无连接  【交互报文前不需要先连接】</li>
+<li>无状态  【不能记住之前访问过同一个页面】</li>
+</ul>
+<h2 id="HTTP请求方式"><a href="#HTTP请求方式" class="headerlink" title="HTTP请求方式"></a>HTTP请求方式</h2><ul>
+<li>get：请求读取由URL所标志的内容 </li>
+<li>post：给服务器添加信息在“报文”中。</li>
+<li>head：请求读取由URL所标志的内容的首部</li>
+<li>delete：通过http请求删除Request-URI所标识的资源</li>
+</ul>
+<p>下面通过DELETE方式在jsp中通过tomcat来请求数据。</p>
+<pre><code>function getXMLHTTPRequest(){
+    if (XMLHttpRequest){
+        return new XMLHttpRequest();
+    }else{
+        try{
+            return new ActiveXObject(&apos;Msxml2.XMLHTTP&apos;);
+        }catch(e){
+            return new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);
+        }
+    }
+}
+var req = getXMLHTTPRequest();
+//index.jsp为测试页面
+req.open(&apos;DELETE&apos;,&apos;index.jsp&apos;,false);    //true和false是设定是否调用，如果用true则删除资源    
+req.send(&quot;test&quot;);
+document.write(req.responseText);
+</code></pre><p>请求baidu.com</p>
+<pre><code>req.open(&apos;DELETE&apos;,&apos;index.jsp&apos;,false);
+//改为
+req.open(&apos;DELETE&apos;,&apos;http://www.baidu.com&apos;,false);
+//返回状态码200，请求方法改为了OPTIONS
+//这应该是baidu自己设定的吧！
+</code></pre><h2 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h2><p>&emsp;&emsp;就是一个缓存，可以暂存一些请求和响应。如果在缓存上有相同的请求就不用在去浏览器上请求资源了。<br>如果没有的话，再进行请求而请求后，会把返回的对象存在本地存储器，下次请求时可以直接使用。<br>所以它是服务端和客户端的合体。<br>好处就是会减少时延。</p>
+<h2 id="域名系统DNS"><a href="#域名系统DNS" class="headerlink" title="域名系统DNS"></a>域名系统DNS</h2><p>&emsp;&emsp;作用就是用来把我们使用的域名转为IP地址，如 “www.cqut.edu.cn” 的IP地址<br>是”222.178.158.61”，其间在专设的节点上有专用的域名服务器。当某应用进程需要解析域名时，就通过DNS请求报文，以UDP的数据报形式发送给本地域名服务器。</p>
+<p>下面是详细步骤：</p>
+<blockquote>
+<p>1.操作系统会先检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析<br>2、如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析。<br>3、如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找TCP/ip参数中设置的首选DNS服务器，在此我们叫它本地DNS服务器，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性。<br>4、如果要查询的域名，不由本地DNS服务器区域解析，但该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析，此解析不具有权威性。<br>5、如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置（是否设置转发器）进行查询，如果未用转发模式，本地DNS就把请求发至13组根DNS，根DNS服务器收到请求后会判断这个域名(.com)是谁来授权管理，并会返回一个负责该顶级域名服务器的一个IP。本地DNS服务器收到IP信息后，将会联系负责.com域的这台服务器。这台负责.com域的服务器收到请求后，如果自己无法解析，它就会找一个管理.com域的下一级DNS服务器地址(example.com)给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找example.com域服务器，重复上面的动作，进行查询，直至找到www.example.com主机。<br>6、如果用的是转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机。</p>
+</blockquote>
+<h4 id="域名结构及划分"><a href="#域名结构及划分" class="headerlink" title="域名结构及划分"></a>域名结构及划分</h4><p>&emsp;&emsp;层次树状结构，如 cqut(三级域名).edu(二级域名).cn(顶级域名)。而且每次查找都是从顶级域名开始。<br>&emsp;&emsp;如图所示</p>
+<p><img src="http://7xklhg.com1.z0.glb.clouddn.com/gitcafe_dsn_space.png" alt=""></p>
+<p>&emsp;&emsp;  正因为有此结构，系统才能更快解析出我们的IP地址   </p>
+
+      
+    </div>
+    <footer class="article-footer">
+       <a data-url="http://blog.zchub.cn/2015/07/20/Http_Protocol/" data-id="citi1uhiq0003eifvo0bchqms" class="article-share-link">Share</a>
+       
+          <a href="http://blog.zchub.cn/2015/07/20/Http_Protocol/#disqus_thread" class="article-comment-link">comments</a>
+        
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/front-end/">front-end</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/28/nightmare-dairy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          深夜小酌
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/04/$ajax与$.post/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JQuery中$.ajax()与$.post()方法的比较</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/daily-toy/">daily-toy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/demo/">demo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/demo/blog/">blog</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/">小玩意</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/nodejs/">nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活日记/">生活日记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/animation/" style="font-size: 12.5px;">animation</a> <a href="/tags/article-tanslate/" style="font-size: 10px;">article_tanslate</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/crx/" style="font-size: 10px;">crx</a> <a href="/tags/css/" style="font-size: 17.5px;">css</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/dairy/" style="font-size: 17.5px;">dairy</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/drop/" style="font-size: 10px;">drop</a> <a href="/tags/file-upload/" style="font-size: 10px;">file-upload</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/hook/" style="font-size: 10px;">hook</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/impressions/" style="font-size: 10px;">impressions</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/internship/" style="font-size: 10px;">internship</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 17.5px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/movie/" style="font-size: 10px;">movie</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/tengxun/" style="font-size: 10px;">tengxun</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/type/" style="font-size: 10px;">type</a> <a href="/tags/xss/" style="font-size: 10px;">xss</a> <a href="/tags/前端安全/" style="font-size: 10px;">前端安全</a> <a href="/tags/扯淡/" style="font-size: 10px;">扯淡</a> <a href="/tags/浏览器安全/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/百度面试/" style="font-size: 10px;">百度面试</a> <a href="/tags/计算机网络/" style="font-size: 12.5px;">计算机网络</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/25/movie_moon/">月球</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/15/无聊的中秋节/">无聊中秋节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/27/fe-upload-method/">获取数据方式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/24/react-freshman/">react-freshman</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/11/internship-summary-in-vdian/">internship-summary</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recent_comments</h3>
+    <div class="widget">
+      <script type="text/javascript" src="http://zchub.disqus.com/recent_comments_widget.js?num_items=4&hide_avatars=0&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Rivers<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags/front-end" class="mobile-nav-link">FE</a>
+  
+    <a href="/tags/随笔" class="mobile-nav-link">Note</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zchub';
+  
+  var disqus_url = 'http://blog.zchub.cn/2015/07/20/Http_Protocol/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

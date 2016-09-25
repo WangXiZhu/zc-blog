@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>html5-draggable | hubyo&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述昨天去百度面试了，妥妥的接受了一波打击。再一次证明自己的基础是相当的不牢固，而且以前学习知识也有点浅尝辄止的感觉。学了新的东西就沾沾自喜，而现在一定要静下心来学习，多多发散思维。
+定义拖(drag)放(drop)，我们就围绕这两个字扩展。
+1.首先要允许拖元素。
+&amp;lt;div draggable=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+2.允许传送数据
+&amp;lt;di">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5-draggable">
+<meta property="og:url" content="http://blog.zchub.cn/2015/09/19/html5-draggable/index.html">
+<meta property="og:site_name" content="hubyo'blog">
+<meta property="og:description" content="概述昨天去百度面试了，妥妥的接受了一波打击。再一次证明自己的基础是相当的不牢固，而且以前学习知识也有点浅尝辄止的感觉。学了新的东西就沾沾自喜，而现在一定要静下心来学习，多多发散思维。
+定义拖(drag)放(drop)，我们就围绕这两个字扩展。
+1.首先要允许拖元素。
+&amp;lt;div draggable=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+2.允许传送数据
+&amp;lt;di">
+<meta property="og:updated_time" content="2016-09-25T03:11:05.036Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5-draggable">
+<meta name="twitter:description" content="概述昨天去百度面试了，妥妥的接受了一波打击。再一次证明自己的基础是相当的不牢固，而且以前学习知识也有点浅尝辄止的感觉。学了新的东西就沾沾自喜，而现在一定要静下心来学习，多多发散思维。
+定义拖(drag)放(drop)，我们就围绕这两个字扩展。
+1.首先要允许拖元素。
+&amp;lt;div draggable=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+2.允许传送数据
+&amp;lt;di">
+  
+    <link rel="alternate" href="/atom.xml" title="hubyo&#39;blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  //不同域名，不同id
+  hm.src = "//hm.baidu.com/hm.js?3a6b5aecad8d65cea4fd3e2576bb5fd9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hubyo&#39;blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">FE | CQ@China</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags/front-end">FE</a>
+        
+          <a class="main-nav-link" href="/tags/随笔">Note</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.zchub.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-html5-draggable" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/19/html5-draggable/" class="article-date">
+  <time datetime="2015-09-19T10:01:33.000Z" itemprop="datePublished">2015-09-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/blog/">blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      html5-draggable
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>昨天去百度面试了，妥妥的接受了一波打击。再一次证明自己的基础是相当的不牢固，而且以前学习知识也有点浅尝辄止的感觉。学了新的东西就沾沾自喜，而现在一定要静下心来学习，多多发散思维。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>拖(drag)放(drop)，我们就围绕这两个字扩展。</p>
+<p>1.首先要允许拖元素。</p>
+<pre><code>&lt;div draggable=&quot;true&quot;&gt;&lt;/div&gt;
+</code></pre><p>2.允许传送数据</p>
+<pre><code>&lt;div id=&quot;drag&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot; &gt;&lt;/div&gt;
+</code></pre><p>3.定义放置的位置</p>
+<pre><code>&lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
+</code></pre><a id="more"></a>
+<p>4.接受数据</p>
+<pre><code>&lt;div id=&quot;container&quot; ondragover=&quot;dragover(event)&quot; ondrop=&quot;drop(event)&quot;&gt;&lt;/div&gt; 
+//js目标元素中保存数据 
+ev.target.appendChild(document.getElementById(data));
+</code></pre><p>5.阻止本身事件<br>drop 事件的默认行为是以链接形式打开，则调用 preventDefault() 来避免浏览器对数据的默认处理。</p>
+<pre><code>ev.preventDefault();    
+</code></pre><h4 id="涉及事件"><a href="#涉及事件" class="headerlink" title="涉及事件"></a>涉及事件</h4><ul>
+<li><p>被拖动的元素发生顺序<br>  dragstart–&gt;drag[持续发生]–dragend</p>
+<ul>
+<li>dragstart:<b>拖动什么</b><br>  按下鼠标键并开始移动鼠标时，会在被拖放的元素上触发dragstart事件。但会出现一个有斜线的圆，表示不能将元素放置在现在的位置上。</li>
+<li>drag:<b>进行放置</b><br>  触发dragstart事件后，便触发。而且一直持续发生。</li>
+<li>dragover<br>  拖动停止时,即鼠标空开，即使元素没有移动。</li>
+</ul>
+</li>
+<li><p>元素拖动到放置的位置发生顺序<br>  dragenter–&gt;dragover[持续发生]–&gt;dragleave或drop</p>
+<ul>
+<li>dragenter:只要元素被拖动到放置目标上，就会触发dragenter事件</li>
+<li>dragover:<b>放到何处</b>，如果被拖动的元素在放置目标的范围内移动时，就会持续触发该事件。若不在目标元素内，则停止该事件。但会触发dragleave事件。</li>
+<li>dragleave：元素离开目标元素时触发。</li>
+</ul>
+</li>
+</ul>
+<h2 id="dataTransfer对象"><a href="#dataTransfer对象" class="headerlink" title="dataTransfer对象"></a>dataTransfer对象</h2><p>为了在拖放操作时实现数据交换，IE 5引入了dataTransfer对象，它是事件对象的一个属性，用于从被拖动元素向放置目标传递<b>字符串格式</b>的数据。</p>
+<p>####访问器与修改器<br>期间允许指定各种MIME类型。如“Text”与“URL”,但是会被映射为“text/plain”和“text/uri-list”。</p>
+<ul>
+<li>setData()</li>
+</ul>
+<pre><code>event.dataTransfer.setData(&quot;Text&quot;, &quot;some text&quot;);
+event.dataTransfer.setData(&quot;URL&quot;, &quot;HTML://www.w3cmm.com/&quot;);
+</code></pre><ul>
+<li>getData()</li>
+</ul>
+<pre><code>//获取文本数据
+var dataTransfer = event.dataTransfer;
+//读取URL
+var url = dataTransfer.getData(&quot;url&quot;) || dataTransfer.getData(&quot;text/uri-list&quot;);
+//读取文本
+var text = edataTransfer.getData(&quot;Text&quot;);
+</code></pre><h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><p>链接地址：<a href="http://htmlpreview.github.io/?https://github.com/WangXiZhu/Learning_Demo/blob/master/html5_draggable/index.html" target="_blank" rel="external">请戳这里</a></p>
+<p>学习地址：<a href="http://www.w3cmm.com/html/drag.html" target="_blank" rel="external">http://www.w3cmm.com/html/drag.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+       <a data-url="http://blog.zchub.cn/2015/09/19/html5-draggable/" data-id="citi1uhkh001ieifvn47vte7j" class="article-share-link">Share</a>
+       
+          <a href="http://blog.zchub.cn/2015/09/19/html5-draggable/#disqus_thread" class="article-comment-link">comments</a>
+        
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/drag/">drag</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/drop/">drop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/百度面试/">百度面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/20/summary-interview-before-20th-Sep/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          9月20日面试总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/14/dairy-2015-09-13/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">dairy-2015-09-13</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/daily-toy/">daily-toy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/demo/">demo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/demo/blog/">blog</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/">小玩意</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/nodejs/">nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活日记/">生活日记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/animation/" style="font-size: 12.5px;">animation</a> <a href="/tags/article-tanslate/" style="font-size: 10px;">article_tanslate</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/crx/" style="font-size: 10px;">crx</a> <a href="/tags/css/" style="font-size: 17.5px;">css</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/dairy/" style="font-size: 17.5px;">dairy</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/drop/" style="font-size: 10px;">drop</a> <a href="/tags/file-upload/" style="font-size: 10px;">file-upload</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/hook/" style="font-size: 10px;">hook</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/impressions/" style="font-size: 10px;">impressions</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/internship/" style="font-size: 10px;">internship</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 17.5px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/movie/" style="font-size: 10px;">movie</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/tengxun/" style="font-size: 10px;">tengxun</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/type/" style="font-size: 10px;">type</a> <a href="/tags/xss/" style="font-size: 10px;">xss</a> <a href="/tags/前端安全/" style="font-size: 10px;">前端安全</a> <a href="/tags/扯淡/" style="font-size: 10px;">扯淡</a> <a href="/tags/浏览器安全/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/百度面试/" style="font-size: 10px;">百度面试</a> <a href="/tags/计算机网络/" style="font-size: 12.5px;">计算机网络</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/25/movie_moon/">月球</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/15/无聊的中秋节/">无聊中秋节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/27/fe-upload-method/">获取数据方式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/24/react-freshman/">react-freshman</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/11/internship-summary-in-vdian/">internship-summary</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recent_comments</h3>
+    <div class="widget">
+      <script type="text/javascript" src="http://zchub.disqus.com/recent_comments_widget.js?num_items=4&hide_avatars=0&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Rivers<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags/front-end" class="mobile-nav-link">FE</a>
+  
+    <a href="/tags/随笔" class="mobile-nav-link">Note</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zchub';
+  
+  var disqus_url = 'http://blog.zchub.cn/2015/09/19/html5-draggable/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>html5新标签data-*与template | hubyo&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述首先这篇文章是由于看到 “script” 标签中引用了html内容，觉得甚是奇怪。在之前模模糊糊的印象中见过，但是但是也没有在意。不过今天在看微店[感觉又在打广告]的招聘网站的是否又看到了这个使用的方法，我觉得有必要学习一下。
+####举个栗子
+&amp;lt;script type=&amp;quot;text/template&amp;quot;  id=&amp;quot;test&amp;quot;&amp;gt;
+    &amp;lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5新标签data-*与template">
+<meta property="og:url" content="http://blog.zchub.cn/2015/09/04/html5-data-template/index.html">
+<meta property="og:site_name" content="hubyo'blog">
+<meta property="og:description" content="概述首先这篇文章是由于看到 “script” 标签中引用了html内容，觉得甚是奇怪。在之前模模糊糊的印象中见过，但是但是也没有在意。不过今天在看微店[感觉又在打广告]的招聘网站的是否又看到了这个使用的方法，我觉得有必要学习一下。
+####举个栗子
+&amp;lt;script type=&amp;quot;text/template&amp;quot;  id=&amp;quot;test&amp;quot;&amp;gt;
+    &amp;lt;">
+<meta property="og:updated_time" content="2016-09-25T03:11:05.036Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5新标签data-*与template">
+<meta name="twitter:description" content="概述首先这篇文章是由于看到 “script” 标签中引用了html内容，觉得甚是奇怪。在之前模模糊糊的印象中见过，但是但是也没有在意。不过今天在看微店[感觉又在打广告]的招聘网站的是否又看到了这个使用的方法，我觉得有必要学习一下。
+####举个栗子
+&amp;lt;script type=&amp;quot;text/template&amp;quot;  id=&amp;quot;test&amp;quot;&amp;gt;
+    &amp;lt;">
+  
+    <link rel="alternate" href="/atom.xml" title="hubyo&#39;blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  //不同域名，不同id
+  hm.src = "//hm.baidu.com/hm.js?3a6b5aecad8d65cea4fd3e2576bb5fd9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hubyo&#39;blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">FE | CQ@China</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags/front-end">FE</a>
+        
+          <a class="main-nav-link" href="/tags/随笔">Note</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.zchub.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-html5-data-template" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/04/html5-data-template/" class="article-date">
+  <time datetime="2015-09-04T21:00:10.000Z" itemprop="datePublished">2015-09-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/blog/">blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      html5新标签data-*与template
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>首先这篇文章是由于看到 “script” 标签中引用了html内容，觉得甚是奇怪。在之前模模糊糊的印象中见过，但是但是也没有在意。不过今天在看微店[感觉又在打广告]的招聘网站的是否又看到了这个使用的方法，我觉得有必要学习一下。</p>
+<p>####举个栗子</p>
+<pre><code>&lt;script type=&quot;text/template&quot;  id=&quot;test&quot;&gt;
+    &lt;div class=&quot;title register&quot;&gt;
+        &lt;h1&gt;姓名:&lt;/h1&gt;
+        &lt;h2&gt;年龄:&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/script&gt;
+</code></pre><a id="more"></a>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><p>还是通过操作dom的形式来获取元素的内容</p>
+<pre><code>var test = document.getElementById(&quot;test&quot;).innerHTML;
+document.write(test);
+</code></pre><p>####分析<br>由于script中的html代码不能直接显示，所以它在页面中的作用就相当于是模板(template)，不过我觉得在script脚本中来做这件事显得有点越俎代庖。那么有没有其他的方式呢？答案是有的。在html5中就有template标签，而它的作用就是这里说的模板。</p>
+<h2 id="tml5的template"><a href="#tml5的template" class="headerlink" title="tml5的template"></a>tml5的template</h2><p>template是属于web components里面的规范。作用是可以将不必立即渲染的元素，不必立即执行的脚本放入这里。</p>
+<h4 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h4><pre><code>&lt;script&gt;
+ // 数据在这里是硬编码，但是也可以访问服务器获得数据
+    var data = [
+       { name: &apos;jack&apos;, age: 20, sex: &apos;Male&apos;},
+       { name: &apos;rose&apos;, age: 19, sex: &apos;Female&apos;},
+    ];
+&lt;/script&gt;
+
+&lt;table border=&quot;1&quot;&gt;
+    &lt;thead&gt;     
+        &lt;tr&gt;
+               &lt;th&gt;姓名 &lt;th&gt;年龄 &lt;th&gt;性别
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;template id=&quot;row&quot;&gt;
+               &lt;tr&gt;&lt;td&gt;&lt;td&gt;&lt;td&gt;&lt;/tr&gt;
+        &lt;/template&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;script&gt;
+    var template = document.querySelector(&apos;#row&apos;);
+    for (var i = 0; i &lt; data.length; i += 1) {
+       var person = data[i];
+       var clone = template.content.cloneNode(true);
+       var cells = clone.querySelectorAll(&apos;td&apos;);
+       cells[0].textContent = person.name;
+       cells[1].textContent = person.age;
+       cells[2].textContent = person.sex;
+       template.parentNode.appendChild(clone);
+    }
+&lt;/script&gt;
+</code></pre><p>这里就是通过template标签来实现刚刚script中的功能，结果可谓是<b>完美！</b></p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>以往可能我们也使用过其他的模板语言，如freemarker,或者就是我们常用的html文档。html文档中就可以通过include来引入其它的文件。而 template 同样也是可以的。</p>
+<pre><code>&lt;template id=&quot;ulList&quot;&gt;
+  &lt;li&gt;
+    &lt;strong&gt;&lt;%=content%&gt;&lt;/strong&gt;
+    &lt;template&gt;
+      &lt;div&gt;
+        &lt;p&gt;&lt;%=detail%&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/template&gt;            
+  &lt;/li&gt;
+&lt;/template&gt;
+</code></pre><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><pre><code>//通常获取内容方法
+var clone = document.getElementById(&quot;row&quot;).content；
+
+//实际上
+var clone = template.content.cloneNode(true);
+</code></pre><p>如果我们直接将内容 appendChild 到 DOM 树中，documentFragment 内的内容就会被清空。因为 template 标签内容就是一个 documentFragment 的 shadowDOM，所以应该使用 cloneNode 或者 importNode 方法将内容复制到 DOM 中，这样才能保证这个 shadowDOM 内容不被清空。</p>
+<h2 id="html5的data"><a href="#html5的data" class="headerlink" title="html5的data-*"></a>html5的data-*</h2><p>在模板利用扩展之后，我又想起了之前看过的同样是html5标签的data-。</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>存储页面或应用程序的私有自定义数据。同时存储的（自定义）数据能够被页面的 JavaScript 中利用，以创建更好的用户体验（不进行 Ajax 调用或服务器端数据库查询）。</p>
+<h4 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h4><pre><code>属性名=&quot;属性值&quot;  ==&gt;  data-name=&quot;value&quot;
+</code></pre><h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><pre><code>&lt;span data-my-name=&quot;tony&quot; data-age=&quot;20&quot; id=&quot;info&quot;&gt;&lt;/span&gt;
+
+&lt;h1 id=&quot;name&quot;&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;age&quot;&gt;&lt;/h2&gt;
+&lt;script&gt;
+    var info = document.getElementById(&quot;info&quot;);
+    document.getElementById(&quot;name&quot;).innerHTML = info.dataset.myName;
+    document.getElementById(&quot;age&quot;).innerHTML = info.dataset.age;
+&lt;/script&gt;
+</code></pre><p>是不是显得非常地多余。但是我们可以定义多种数据，有的情况下需要，有时不需要，那么我们就可以通过script操作来实现。</p>
+<h4 id="data-在script中如何使用"><a href="#data-在script中如何使用" class="headerlink" title="data-*在script中如何使用"></a>data-*在script中如何使用</h4><p>1.getAttribute与setAttribute存取dataset</p>
+<pre><code>var name = document.getElementById(&quot;info&quot;).getAttribute(&quot;data-my-name&quot;);
+</code></pre><p>2.通过Dataset</p>
+<p>返回一个集合</p>
+<pre><code>var dataset = document.getElementById(&quot;info&quot;).dataset;
+</code></pre><p>某个具体数据</p>
+<p>data-name 的data就可以直接省略，但是name的内容必须以驼峰式来进行命名。如data-git-hub就直接转为gitHub。</p>
+<pre><code>var name = document.getElementById(&quot;info&quot;).dataset.myName;    
+</code></pre><p>3.使用了jquery</p>
+<p>jquery中获取该属性值可以通过 $.data() 的方式,以及 $.attr(),但是推荐 $.attr()的方式更加准确。</p>
+<h4 id="data-浏览器支持情况"><a href="#data-浏览器支持情况" class="headerlink" title="data-*浏览器支持情况"></a>data-*浏览器支持情况</h4><p>HTML5 Data属性的支持情况在IE上很糟糕。</p>
+<p><a href="http://caniuse.com/#search=data-*" target="_blank" rel="external">http://caniuse.com/#search=data-*</a></p>
+<ul>
+<li>Internet Explorer: 11+</li>
+<li>Chrome: 8+</li>
+<li>Firefox: 6+</li>
+<li>Opera: 11.1+</li>
+<li>Safari: 6+</li>
+<li>Android Browser: 4+</li>
+</ul>
+<p>学习网站：<br><a href="http://www.w3.org/TR/html5/scripting-1.html#the-template-element" target="_blank" rel="external">http://www.w3.org/TR/html5/scripting-1.html#the-template-element</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+       <a data-url="http://blog.zchub.cn/2015/09/04/html5-data-template/" data-id="citi1uhke001feifvv1z30hjs" class="article-share-link">Share</a>
+       
+          <a href="http://blog.zchub.cn/2015/09/04/html5-data-template/#disqus_thread" class="article-comment-link">comments</a>
+        
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/template/">template</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/05/front-end-site-share/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          前端网站及资源分享
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/02/front-end-security-xss/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">front-end-security-xss</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/daily-toy/">daily-toy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/demo/">demo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/demo/blog/">blog</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/">小玩意</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/nodejs/">nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活日记/">生活日记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/animation/" style="font-size: 12.5px;">animation</a> <a href="/tags/article-tanslate/" style="font-size: 10px;">article_tanslate</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/crx/" style="font-size: 10px;">crx</a> <a href="/tags/css/" style="font-size: 17.5px;">css</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/dairy/" style="font-size: 17.5px;">dairy</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/drop/" style="font-size: 10px;">drop</a> <a href="/tags/file-upload/" style="font-size: 10px;">file-upload</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/hook/" style="font-size: 10px;">hook</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/impressions/" style="font-size: 10px;">impressions</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/internship/" style="font-size: 10px;">internship</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 17.5px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/movie/" style="font-size: 10px;">movie</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/tengxun/" style="font-size: 10px;">tengxun</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/type/" style="font-size: 10px;">type</a> <a href="/tags/xss/" style="font-size: 10px;">xss</a> <a href="/tags/前端安全/" style="font-size: 10px;">前端安全</a> <a href="/tags/扯淡/" style="font-size: 10px;">扯淡</a> <a href="/tags/浏览器安全/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/百度面试/" style="font-size: 10px;">百度面试</a> <a href="/tags/计算机网络/" style="font-size: 12.5px;">计算机网络</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/25/movie_moon/">月球</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/15/无聊的中秋节/">无聊中秋节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/27/fe-upload-method/">获取数据方式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/24/react-freshman/">react-freshman</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/11/internship-summary-in-vdian/">internship-summary</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recent_comments</h3>
+    <div class="widget">
+      <script type="text/javascript" src="http://zchub.disqus.com/recent_comments_widget.js?num_items=4&hide_avatars=0&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Rivers<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags/front-end" class="mobile-nav-link">FE</a>
+  
+    <a href="/tags/随笔" class="mobile-nav-link">Note</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zchub';
+  
+  var disqus_url = 'http://blog.zchub.cn/2015/09/04/html5-data-template/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

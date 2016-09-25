@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript array | hubyo&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="javascript数组昨天在做阿里巴巴的面试题时发现针对JavaScript Array考的问题还有记到，而且都是考原生的方法。但部分在w3c上都没有见过，于是就查看了资料弄个究竟。这里就介绍了以下几个方法：sort()、forEach()、filter()、reduce()、join()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript array">
+<meta property="og:url" content="http://blog.zchub.cn/2015/08/19/javascript-array/index.html">
+<meta property="og:site_name" content="hubyo'blog">
+<meta property="og:description" content="javascript数组昨天在做阿里巴巴的面试题时发现针对JavaScript Array考的问题还有记到，而且都是考原生的方法。但部分在w3c上都没有见过，于是就查看了资料弄个究竟。这里就介绍了以下几个方法：sort()、forEach()、filter()、reduce()、join()">
+<meta property="og:updated_time" content="2016-09-25T03:11:05.036Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript array">
+<meta name="twitter:description" content="javascript数组昨天在做阿里巴巴的面试题时发现针对JavaScript Array考的问题还有记到，而且都是考原生的方法。但部分在w3c上都没有见过，于是就查看了资料弄个究竟。这里就介绍了以下几个方法：sort()、forEach()、filter()、reduce()、join()">
+  
+    <link rel="alternate" href="/atom.xml" title="hubyo&#39;blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  //不同域名，不同id
+  hm.src = "//hm.baidu.com/hm.js?3a6b5aecad8d65cea4fd3e2576bb5fd9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hubyo&#39;blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">FE | CQ@China</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags/front-end">FE</a>
+        
+          <a class="main-nav-link" href="/tags/随笔">Note</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.zchub.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript-array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/19/javascript-array/" class="article-date">
+  <time datetime="2015-08-19T15:11:05.000Z" itemprop="datePublished">2015-08-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/blog/">blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript array
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="javascript数组"><a href="#javascript数组" class="headerlink" title="javascript数组"></a>javascript数组</h2><p>昨天在做阿里巴巴的面试题时发现针对JavaScript Array考的问题还有记到，而且都是考原生的方法。<br>但部分在w3c上都没有见过，于是就查看了资料弄个究竟。<br>这里就介绍了以下几个方法：sort()、forEach()、filter()、reduce()、join()</p>
+<a id="more"></a>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h4><p> <b>定义：</b>sort方法是字符编码ASCII的顺序进行排序。    </p>
+<pre><code>//比较字符串
+var b=[&apos;a&apos;,&apos;d&apos;,&apos;c&apos;]
+b.sort()        //b = [&quot;a&quot;, &quot;c&quot;, &quot;d&quot;]
+
+//比较数字
+var a=[0,5,10,15];      //0的ASCII码为48,1的ASCII码为49
+a.sort();       //a = [0, 10, 15, 5]
+</code></pre><p> 过程是通过比较两个参数值返回结果的大小来决定排列顺序,<br> 所以在比较数字的时候需要写函数来判断,如果结果&gt;0，则交换顺序；结果&lt;=0则不交换。</p>
+<pre><code>//正确地比较数字
+sort(function compare(a,b){return b-a;})    //逆序
+sort(function compare(a,b){return a-b;})    //顺序
+</code></pre><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h4><p> <b>定义：</b>数组的每个元素都执行方法</p>
+<p> <b>表达式：</b>array1.forEach(callbackfn[, thisArg])</p>
+<ul>
+<li>array1 【必选】  一个数组对象。</li>
+<li>callbackfn【必选】 最多可以接受三个参数的函数。 对于数组中的每个元素，forEach 都会调用 callbackfn 函数一次。</li>
+<li>thisArg【可选】 callbackfn 函数中的 this 关键字可引用的对象。 如果省略 thisArg，则 undefined 将用作 this 值。</li>
+</ul>
+<p><b>例子</b></p>
+<pre><code>//value为数字值，index为下标 ， ar该元素的数组对象，这里是letters；数组的每个元素执行都会调用callbackfn函数
+function ShowResults(value, index, ar) { 
+    document.write(&quot;value: &quot; + value); 
+    document.write(&quot; index: &quot; + index); 
+    document.write(&quot;&lt;br /&gt;&quot;); 
+} 
+letters.forEach(ShowResults); 
+</code></pre><h4 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h4><p><b>定义：</b> 在匹配过滤条件后，创建一个新的数组。所以不会改变原数组。</p>
+<p><b>表达式：</b>array1.filter(callbackfn[, thisArg])</p>
+<p><b>callbackfn参数</b></p>
+<p>语法：</p>
+<pre><code>function callbackfn(value,index,array1)
+</code></pre><ul>
+<li>元素的值：[value]</li>
+<li>元素的索引:[index]</li>
+<li>被遍历的数组:[array1]</li>
+</ul>
+<p>如果为 filter 提供一个 thisArg 参数，则它会被作为 callback 被调用时的 this 值。<br>否则，callback 的 this 值在非严格模式下将是全局对象，严格模式下为 undefined。</p>
+<p>filter 遍历的元素范围在第一次调用 callback 之前就已经确定了。所以以后的操作不会遍历到！</p>
+<p><b>示例</b></p>
+<pre><code>function isBigEnough(element) {
+  return element &gt;= 10;
+}
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// filtered is [12, 130, 44]
+</code></pre><p>####reduce()<br> <b>定义：</b>数组缩减为一个数字。</p>
+<p> <b>表达式：</b>array1.reduce(callbackfn,[initialValue])[其中不同于以上函数，reduce的callback的参数有<b>四个</b>]</p>
+<p><b>参数说明</b></p>
+<ul>
+<li>previousValue  : 上一次调用回调返回的值，或者是提供的初始值(initialValue)</li>
+<li>currentValue  :  数组中当前被处理的元素</li>
+<li>index : 当前元素在数组中的索引</li>
+<li>array  :  调用的数组</li>
+<li>initialValue : 作为第一次调用 callback 的第一个参数</li>
+</ul>
+<p><b>示例</b></p>
+<pre><code>[0,1,2,3,4].reduce(function(previousValue, currentValue, index, array){return previousValue + currentValue;});
+</code></pre><p><b>数组扁平化</b></p>
+<p>我的理解就是多维数组变为了一维数组。</p>
+<pre><code>var flattened =[[0,1],[2,3],[4,5]].reduce(function(a, b){return a.concat(b);});
+// flattened is [0, 1, 2, 3, 4, 5]
+</code></pre><h4 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h4><p>一个数组的所有元素连接成为一个字符串。   </p>
+<pre><code>var ddd = [1,2,4,3,5];
+var str = ddd.sort(function compare(a,b){return b-a;}).join(&apos;+&apos;);
+// str = &apos;5+4+3+2+1&apos;;
+</code></pre><h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><pre><code>[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;].map(parseInt) 输出结果为
+</code></pre><p>输出函数的解析过程,代码如下</p>
+<pre><code>//map的callbackfn传入的参数如下
+
+var parseInt = function(value, index, array1) {
+    return value + &quot;-&quot; + index+&quot;-&quot;+array1;       
+    //[&quot;1-0-1,2,3&quot;, &quot;2-1-1,2,3&quot;, &quot;3-2-1,2,3&quot;]
+};
+
+[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;].map(parseInt);
+</code></pre><p>而parseInt可接受的参数为2个</p>
+<pre><code>parseInt(string, radix);        //string为解析的字符串；radix解析的数字的基数，值为[2~36]
+</code></pre><p>所以有</p>
+<pre><code>parseInt(&quot;1&quot;,&quot;0&quot;);      //1
+parseInt(&quot;2&quot;,&quot;1&quot;);      //NaN
+parseInt(&quot;3&quot;,&quot;2&quot;);      //NaN
+</code></pre><p>参考资料：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+       <a data-url="http://blog.zchub.cn/2015/08/19/javascript-array/" data-id="citi1uhkx001xeifv47tzk2mp" class="article-share-link">Share</a>
+       
+          <a href="http://blog.zchub.cn/2015/08/19/javascript-array/#disqus_thread" class="article-comment-link">comments</a>
+        
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/front-end/">front-end</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/23/html5-webSocket/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          html5 webSocket
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/18/css3-animation-demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">css3 animation</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/daily-toy/">daily-toy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/demo/">demo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/demo/blog/">blog</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/">小玩意</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/nodejs/">nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活日记/">生活日记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/animation/" style="font-size: 12.5px;">animation</a> <a href="/tags/article-tanslate/" style="font-size: 10px;">article_tanslate</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/crx/" style="font-size: 10px;">crx</a> <a href="/tags/css/" style="font-size: 17.5px;">css</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/dairy/" style="font-size: 17.5px;">dairy</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/drop/" style="font-size: 10px;">drop</a> <a href="/tags/file-upload/" style="font-size: 10px;">file-upload</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/hook/" style="font-size: 10px;">hook</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/impressions/" style="font-size: 10px;">impressions</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/internship/" style="font-size: 10px;">internship</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 17.5px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/movie/" style="font-size: 10px;">movie</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/tengxun/" style="font-size: 10px;">tengxun</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/type/" style="font-size: 10px;">type</a> <a href="/tags/xss/" style="font-size: 10px;">xss</a> <a href="/tags/前端安全/" style="font-size: 10px;">前端安全</a> <a href="/tags/扯淡/" style="font-size: 10px;">扯淡</a> <a href="/tags/浏览器安全/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/百度面试/" style="font-size: 10px;">百度面试</a> <a href="/tags/计算机网络/" style="font-size: 12.5px;">计算机网络</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/25/movie_moon/">月球</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/15/无聊的中秋节/">无聊中秋节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/27/fe-upload-method/">获取数据方式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/24/react-freshman/">react-freshman</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/11/internship-summary-in-vdian/">internship-summary</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recent_comments</h3>
+    <div class="widget">
+      <script type="text/javascript" src="http://zchub.disqus.com/recent_comments_widget.js?num_items=4&hide_avatars=0&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Rivers<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags/front-end" class="mobile-nav-link">FE</a>
+  
+    <a href="/tags/随笔" class="mobile-nav-link">Note</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zchub';
+  
+  var disqus_url = 'http://blog.zchub.cn/2015/08/19/javascript-array/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

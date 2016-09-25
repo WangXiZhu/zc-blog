@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css3-animation-performance | hubyo&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="动画与性能  在前端的活动开发中经常会遇到动画。在pc端往往看到的“正常”的动画在移动端却不正常。有的会出现“卡顿”和闪烁的现象。  在了解动画之前，首先了解一些概念
+动画名词概念
+帧： 在动画过程中，每一幅静止画面即为一“帧”
+帧率：即每秒钟播放的静止画面的数量，单位是fps(Frame per second)
+帧时长：即每一幅静止画面的停留时间，单位一般是ms(毫秒)
+跳帧(掉帧/丢帧)：在帧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css3-animation-performance">
+<meta property="og:url" content="http://blog.zchub.cn/2016/03/29/css3-animation-perfomance/index.html">
+<meta property="og:site_name" content="hubyo'blog">
+<meta property="og:description" content="动画与性能  在前端的活动开发中经常会遇到动画。在pc端往往看到的“正常”的动画在移动端却不正常。有的会出现“卡顿”和闪烁的现象。  在了解动画之前，首先了解一些概念
+动画名词概念
+帧： 在动画过程中，每一幅静止画面即为一“帧”
+帧率：即每秒钟播放的静止画面的数量，单位是fps(Frame per second)
+帧时长：即每一幅静止画面的停留时间，单位一般是ms(毫秒)
+跳帧(掉帧/丢帧)：在帧">
+<meta property="og:image" content="http://7xklhg.com1.z0.glb.clouddn.com/chrome-open-layer-border.png">
+<meta property="og:image" content="http://7xklhg.com1.z0.glb.clouddn.com/chrome-show-borders.png">
+<meta property="og:image" content="http://7xklhg.com1.z0.glb.clouddn.com/web-animation-libraries-C2.jpg">
+<meta property="og:updated_time" content="2016-09-25T03:11:05.036Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css3-animation-performance">
+<meta name="twitter:description" content="动画与性能  在前端的活动开发中经常会遇到动画。在pc端往往看到的“正常”的动画在移动端却不正常。有的会出现“卡顿”和闪烁的现象。  在了解动画之前，首先了解一些概念
+动画名词概念
+帧： 在动画过程中，每一幅静止画面即为一“帧”
+帧率：即每秒钟播放的静止画面的数量，单位是fps(Frame per second)
+帧时长：即每一幅静止画面的停留时间，单位一般是ms(毫秒)
+跳帧(掉帧/丢帧)：在帧">
+<meta name="twitter:image" content="http://7xklhg.com1.z0.glb.clouddn.com/chrome-open-layer-border.png">
+  
+    <link rel="alternate" href="/atom.xml" title="hubyo&#39;blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  //不同域名，不同id
+  hm.src = "//hm.baidu.com/hm.js?3a6b5aecad8d65cea4fd3e2576bb5fd9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hubyo&#39;blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">FE | CQ@China</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags/front-end">FE</a>
+        
+          <a class="main-nav-link" href="/tags/随笔">Note</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.zchub.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-css3-animation-perfomance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/29/css3-animation-perfomance/" class="article-date">
+  <time datetime="2016-03-29T17:04:56.000Z" itemprop="datePublished">2016-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/blog/">blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css3-animation-performance
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="动画与性能"><a href="#动画与性能" class="headerlink" title="动画与性能"></a>动画与性能</h3><p>  在前端的活动开发中经常会遇到动画。在pc端往往看到的“正常”的动画在移动端却不正常。有的会出现“卡顿”和闪烁的现象。<br>  在了解动画之前，首先了解一些概念</p>
+<h4 id="动画名词概念"><a href="#动画名词概念" class="headerlink" title="动画名词概念"></a>动画名词概念</h4><ul>
+<li>帧： 在动画过程中，每一幅静止画面即为一“帧”</li>
+<li>帧率：即每秒钟播放的静止画面的数量，单位是fps(Frame per second)</li>
+<li>帧时长：即每一幅静止画面的停留时间，单位一般是ms(毫秒)</li>
+<li>跳帧(掉帧/丢帧)：在帧率固定的动画中，某一帧的时长远高于平均帧时长，导致其后续数帧被挤压而丢失的现象</li>
+<li>图层：用html片段放置在常规页面的页面。<a href="http://www.echoecho.com/csslayers.htm" target="_blank" rel="external">css layers</a> 通过z-index属性来控制重叠的顺序。 常见的层模型有 relative 和 absolute(fixed)等几种。</li>
+</ul>
+<h5 id="合成层-图层"><a href="#合成层-图层" class="headerlink" title="合成层(图层)"></a>合成层(图层)</h5><p> 那么动画是如何播放的，我们就涉及到了合成层。每个合成层对应了一个GPU纹理，所以它和内存息息相关。在超过一定范围，可能引起浏览器崩溃，观察数量是我们了解的最直接的方法。</p>
+<ul>
+<li>chrome？<br>其中chrome有很多层，包括了RenderLayer(负责 DOM 子树)，GraphicsLayer(负责 RenderLayer 的子树)。<br>chrome中如何显示层，打开chrome://flags/#composited-layer-borders启用，然后打开开发工具勾选Show composited layer borders。</li>
+</ul>
+<a id="more"></a>
+<p><img src="http://7xklhg.com1.z0.glb.clouddn.com/chrome-open-layer-border.png" alt=""></p>
+<p>  结果如下</p>
+<p>  <img src="http://7xklhg.com1.z0.glb.clouddn.com/chrome-show-borders.png" alt=""></p>
+<p>  这个页面只有一个层，其中蓝色的网格表示瓦片(tile)，他们作为层的单元。</p>
+<p>创建层的标准,具体一下几种情况</p>
+<ul>
+<li>3D 或透视变换(perspective transform) CSS 属性</li>
+<li>使用加速视频解码的 元素</li>
+<li>拥有 3D (WebGL) 上下文或加速的 2D 上下文的 元素</li>
+<li>混合插件(如 Flash)</li>
+<li>对自己的 opacity 做 CSS 动画或使用一个动画 webkit 变换的元素</li>
+<li>拥有加速 CSS 过滤器的元素</li>
+<li>元素有一个包含复合层的后代节点(换句话说，就是一个元素拥有一个子元素，该子元素在自己的层里)</li>
+<li><p>它的兄弟元素在复合层中渲染，而这个兄弟元素的z-index比较小（也会放到复合层）</p>
+<ul>
+<li>对于Firefox，打开about:config然后设置layers.draw-borders为true</li>
+</ul>
+</li>
+</ul>
+<h5 id="浏览器中DOM到屏幕"><a href="#浏览器中DOM到屏幕" class="headerlink" title="浏览器中DOM到屏幕"></a>浏览器中DOM到屏幕</h5><p> 经常面试会问到这个相关的问题。“浏览器访问过程发生的事情？”。讲到渲染的时候，都是html dom tree + css stylesheet = render tree。那么更具体一点的呢？</p>
+<p>   1.获取 DOM 并将其分割为多个层<br>   2.将每个层独立的绘制进位图中<br>   3.将层作为纹理上传至 GPU<br>   4.复合多个层来生成最终的屏幕图像。</p>
+<p>   层是不是越多越好呢？并不是，层会占用系统 RAM 与 GPU(在移动设备上尤其有限)的内存，并且拥有大量的层会因为记录哪些是可见的而引入额外的开销。所以我们应该控制</p>
+<h4 id="动画的种类"><a href="#动画的种类" class="headerlink" title="动画的种类"></a>动画的种类</h4><ul>
+<li>css<ul>
+<li>css dom animation</li>
+<li>svg animation</li>
+</ul>
+</li>
+<li>javascript<ul>
+<li>javascript dom animation</li>
+<li>canvas animation</li>
+<li>webGL</li>
+</ul>
+</li>
+<li>jquery</li>
+</ul>
+<h5 id="动画如何选择"><a href="#动画如何选择" class="headerlink" title="动画如何选择"></a>动画如何选择</h5><p>  动画方案以上几种，我们如何选择合适的，高性能的动画呢？</p>
+<p>  js动画通过操作DOM元素修改样式来是实现动画，在PC端兼容低端浏览器更占优势。</p>
+<p><em>优点：更好的控制。如动画的开始，结束以及监听动画</em><br><em>缺点：js本身是单线程，其他的js可能对其干扰，造成线程阻塞，引起“丢帧”现象</em></p>
+<p>  在移动端，我们选择性能更优的css3动画！它由浏览器来执行。但是移动端本身的特殊性，性能成为一大痛点。<br><em>优点：浏览器能对动画进行优化。使用图层，这样在主线程外运行</em><br><em>缺点：控制力弱，难以实现动画的有序显示</em></p>
+<p>  jquery在选择引擎效率确实很快，但是在动画方面不占优势。原因是经常触发垃圾回收（导致动画运行过程中的卡顿）。以及不能避免的<a href="http://wilsonpage.co.uk/preventing-layout-thrashing/" target="_blank" rel="external">layout thrashing</a>（导致在动画开始卡顿），多余的relayout/reflow。</p>
+<h5 id="什么是硬件加速"><a href="#什么是硬件加速" class="headerlink" title="什么是硬件加速"></a>什么是硬件加速</h5><p>  浏览器不会在动画的每一帧都绘制一次，而是生成DOM元素的快照，并作为GPU纹理（也被叫做层）存储起来。之后浏览器只需要告诉GPU[擅长图形计算]去转换指定的纹理来实现DOM元素的动画效果。这就叫做GPU合成，也经常被称作『硬件加速』。</p>
+<p><em>缺点：消耗用户设备电量，消耗电池寿命</em></p>
+<p>硬件加速原理<br><em>渲染树，每个渲染对象都会指定到一个图片层，并作为结构上传到GPU  。是由几个cpmpositor进程处理的。当动画结束，这个层（GPU纹理）会被移除 。</em></p>
+<h5 id="动画调优的策略与技巧"><a href="#动画调优的策略与技巧" class="headerlink" title="动画调优的策略与技巧"></a>动画调优的策略与技巧</h5><p>通过一张图来总结展示一下<br><img src="http://7xklhg.com1.z0.glb.clouddn.com/web-animation-libraries-C2.jpg" alt=""></p>
+<ul>
+<li>提升每一帧性能（缩短帧时长，提高帧率）<ul>
+<li>避免频繁的重排（layout）。</li>
+<li>避免大面积的重绘（repaint）。</li>
+<li>优化JS运行性能。</li>
+</ul>
+</li>
+<li><p>保证帧率平稳（避免跳帧）</p>
+<ul>
+<li>不在连续的动画过程中做高耗时的操作（如大面积重绘、重排、复杂JS执行），避免发生跳帧。</li>
+<li>若高耗时操作无法避免，则尝试化解，比如：<ul>
+<li>将高耗时操作放在动画开始或结尾处。</li>
+<li>将高耗时操作分摊至动画的每一帧中处理。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>针对硬件加速渲染通道的优化<ul>
+<li>通过层的变化效果(如transform)实现位移、缩放等动画，可避免重绘。</li>
+<li>合理划分层，动静分离，可避免大面积重绘。</li>
+<li>使用分层优化动画时，需要留意内存消耗情况（通过Safari调试工具）。</li>
+</ul>
+</li>
+</ul>
+<h5 id="如何提高移动端动画体验"><a href="#如何提高移动端动画体验" class="headerlink" title="如何提高移动端动画体验"></a>如何提高移动端动画体验</h5><p>1、移动端直接GPU来加载动画的,如3D变形</p>
+<pre><code>transform: translate3d(0, 0, 0);  
+</code></pre><p>2、每个设备的GPU渲染最好是在60fps(frames per second)以下。因为浏览器<br>3、使用良好支撑GPU的css属性</p>
+<ul>
+<li>opacity</li>
+<li>translate</li>
+<li>rotate</li>
+<li>scale</li>
+</ul>
+<p>4、使用transform hack来加速硬件</p>
+<pre><code>//当有闪烁的时候
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+
+-webkit-perspective: 1000;
+perspective: 1000;    
+
+//使用translate3d代替position:left||right 进行位移
+</code></pre><p>5、少使用box-shadows与gradients<br>6、尽可能的让动画元素不在文档流中，以减少重排，用到z-index<br>7、优化DOM layout性能<br>批量访问和更新DOM，减少操作、layout thrashing</p>
+<pre><code>top = element.style.top;  //访问
+left = element.style.left; //访问
+
+element.style.top = top + 10; //更新
+element.style.left = left + 10;  //更新
+</code></pre><p>8、js方面避免setTimeout,setTimeInterval。</p>
+<p>9、使用3D硬件加速时，添加z-index人为干扰复合层排序，减少浏览器创建不必要的复合层，提高渲染性能</p>
+<h5 id="影响重排属性（物理结构改变的属性）"><a href="#影响重排属性（物理结构改变的属性）" class="headerlink" title="影响重排属性（物理结构改变的属性）"></a>影响重排属性（物理结构改变的属性）</h5><table>
+<thead>
+<tr>
+<th style="text-align:left">1</th>
+<th style="text-align:left">2</th>
+<th style="text-align:left">3</th>
+<th style="text-align:left">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">width</td>
+<td style="text-align:left">height</td>
+<td style="text-align:left">padding</td>
+<td style="text-align:left">margin</td>
+</tr>
+<tr>
+<td style="text-align:left">display</td>
+<td style="text-align:left">border-width</td>
+<td style="text-align:left">border</td>
+<td style="text-align:left">top</td>
+</tr>
+<tr>
+<td style="text-align:left">position</td>
+<td style="text-align:left">font-size</td>
+<td style="text-align:left">float</td>
+<td style="text-align:left">text-align</td>
+</tr>
+<tr>
+<td style="text-align:left">overflow-y</td>
+<td style="text-align:left">font-weight</td>
+<td style="text-align:left">overflow</td>
+<td style="text-align:left">left</td>
+</tr>
+<tr>
+<td style="text-align:left">font-family</td>
+<td style="text-align:left">line-height</td>
+<td style="text-align:left">vertical-align</td>
+<td style="text-align:left">right</td>
+</tr>
+<tr>
+<td style="text-align:left">clear</td>
+<td style="text-align:left">white-space</td>
+<td style="text-align:left">bottom</td>
+<td style="text-align:left">min-height</td>
+</tr>
+</tbody>
+</table>
+<h5 id="影响重绘属性（一些外表样式上的属性-皮肤）"><a href="#影响重绘属性（一些外表样式上的属性-皮肤）" class="headerlink" title="影响重绘属性（一些外表样式上的属性-皮肤）"></a>影响重绘属性（一些外表样式上的属性-皮肤）</h5><table>
+<thead>
+<tr>
+<th style="text-align:left">1</th>
+<th style="text-align:left">2</th>
+<th style="text-align:left">3</th>
+<th style="text-align:left">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">color</td>
+<td style="text-align:left">border-style</td>
+<td style="text-align:left">visibility</td>
+<td style="text-align:left">background</td>
+</tr>
+<tr>
+<td style="text-align:left">text-decoration</td>
+<td style="text-align:left">background-image</td>
+<td style="text-align:left">background-position</td>
+<td style="text-align:left">background-repeat</td>
+</tr>
+<tr>
+<td style="text-align:left">outline-color</td>
+<td style="text-align:left">outline</td>
+<td style="text-align:left">outline-style</td>
+<td style="text-align:left">border-radius</td>
+</tr>
+<tr>
+<td style="text-align:left">outline-width</td>
+<td style="text-align:left">box-shadow</td>
+<td style="text-align:left">background-size</td>
+</tr>
+</tbody>
+</table>
+<h5 id="动画API"><a href="#动画API" class="headerlink" title="动画API"></a>动画API</h5><ul>
+<li>requestAnimationFrame： RAF机制<br><del>作用类似setTimeout(fn,0),但是它能让所有的DOM在下一个frame中运行</del><br>准确来说，它的功能类似underscore中的 throttle(节流)。当我们在浏览器中加载动画时，它是一个起到让动画流畅的保证。(PS：IE9不支持)<ul>
+<li>requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。</li>
+<li>在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的的cpu，gpu和内存使用量。</li>
+</ul>
+</li>
+</ul>
+<p><a href="http://jsbin.com/ebicuJu/2/edit?js,output" target="_blank" rel="external">requestAnimationFrame实例</a>：是否使用requestAnimationFrame的差别</p>
+<pre><code>var h1 = element.clientHeight;
+requestAnimationFrame(function(){
+    element.style.height = (h1 * 2)+ &apos;px&apos;;
+    var height = element1.clientHeight;
+});
+</code></pre><ul>
+<li><p>监听 transitionend</p>
+<pre><code>var box = document.querySelector(&quot;.box&quot;);
+box.addEventListener(&apos;transitionend&apos;, onTransitionEnd , flase);
+
+function onTransitionEnd(){
+    //handle the transition
+}
+</code></pre></li>
+</ul>
+<h5 id="动画库"><a href="#动画库" class="headerlink" title="动画库"></a>动画库</h5><ul>
+<li>velocity.js</li>
+<li>animation.css</li>
+<li><a href="http://greensock.com/gsap" target="_blank" rel="external">GSAP</a><ul>
+<li>比jquery快20倍，移动设备上也很流畅</li>
+<li>兼容性良好，完爆<h5 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h5></li>
+</ul>
+</li>
+<li><a href="http://alexorz.github.io/animation-performance-guide/" target="_blank" rel="external">http://alexorz.github.io/animation-performance-guide/</a></li>
+<li><a href="http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/" target="_blank" rel="external">http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/" target="_blank" rel="external">http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/</a></li>
+<li><a href="http://www.awwwards.com/web-animation-infographics-a-map-of-the-best-animation-libraries-for-javascript-and-css3-plus-performance-tips.html" target="_blank" rel="external">http://www.awwwards.com/web-animation-infographics-a-map-of-the-best-animation-libraries-for-javascript-and-css3-plus-performance-tips.html</a></li>
+<li><a href="https://davidwalsh.name/css-js-animation" target="_blank" rel="external">https://davidwalsh.name/css-js-animation</a></li>
+<li><a href="http://www.html5rocks.com/zh/tutorials/speed/layers/" target="_blank" rel="external">http://www.html5rocks.com/zh/tutorials/speed/layers/</a></li>
+<li><a href="https://css-tricks.com/debouncing-throttling-explained-examples/" target="_blank" rel="external">debounce,throttle,rAF</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+       <a data-url="http://blog.zchub.cn/2016/03/29/css3-animation-perfomance/" data-id="citi1uhjh000heifv7qo7yqvg" class="article-share-link">Share</a>
+       
+          <a href="http://blog.zchub.cn/2016/03/29/css3-animation-perfomance/#disqus_thread" class="article-comment-link">comments</a>
+        
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/11/internship-summary-in-vdian/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          internship-summary
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/19/移动端web思考/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">移动端web思考</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/daily-toy/">daily-toy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/demo/">demo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/demo/blog/">blog</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/">小玩意</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/小玩意/nodejs/">nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活日记/">生活日记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/animation/" style="font-size: 12.5px;">animation</a> <a href="/tags/article-tanslate/" style="font-size: 10px;">article_tanslate</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/crx/" style="font-size: 10px;">crx</a> <a href="/tags/css/" style="font-size: 17.5px;">css</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/dairy/" style="font-size: 17.5px;">dairy</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/drop/" style="font-size: 10px;">drop</a> <a href="/tags/file-upload/" style="font-size: 10px;">file-upload</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/hook/" style="font-size: 10px;">hook</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/impressions/" style="font-size: 10px;">impressions</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/internship/" style="font-size: 10px;">internship</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 17.5px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/movie/" style="font-size: 10px;">movie</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/tengxun/" style="font-size: 10px;">tengxun</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/type/" style="font-size: 10px;">type</a> <a href="/tags/xss/" style="font-size: 10px;">xss</a> <a href="/tags/前端安全/" style="font-size: 10px;">前端安全</a> <a href="/tags/扯淡/" style="font-size: 10px;">扯淡</a> <a href="/tags/浏览器安全/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/百度面试/" style="font-size: 10px;">百度面试</a> <a href="/tags/计算机网络/" style="font-size: 12.5px;">计算机网络</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/25/movie_moon/">月球</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/15/无聊的中秋节/">无聊中秋节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/27/fe-upload-method/">获取数据方式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/24/react-freshman/">react-freshman</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/11/internship-summary-in-vdian/">internship-summary</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recent_comments</h3>
+    <div class="widget">
+      <script type="text/javascript" src="http://zchub.disqus.com/recent_comments_widget.js?num_items=4&hide_avatars=0&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Rivers<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags/front-end" class="mobile-nav-link">FE</a>
+  
+    <a href="/tags/随笔" class="mobile-nav-link">Note</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zchub';
+  
+  var disqus_url = 'http://blog.zchub.cn/2016/03/29/css3-animation-perfomance/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
